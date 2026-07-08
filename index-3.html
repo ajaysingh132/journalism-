@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GBSBFORYOU — स्वतंत्र पत्रकार सहकारिता</title>
+<meta name="description" content="भारत की जनता के स्वामित्व वाली स्वतंत्र पत्रकार सहकारिता — एक व्यक्ति, एक वोट।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Hind:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#151B2E;
+    --ink-2:#1E2740;
+    --paper:#F3EEDF;
+    --cream-text:#ECE4CD;
+    --seal:#B23A2E;
+    --seal-dim:#8C2B22;
+    --brass:#C9A85C;
+    --line:rgba(201,168,92,0.35);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream-text);
+    font-family:'Hind', sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Tiro Devanagari Hindi', serif;
+    font-weight:400;
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; letter-spacing:0.02em; }
+  a{ color:inherit; }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
+
+  .seal{
+    width:132px; height:132px; border-radius:50%;
+    border:2px solid var(--seal);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; flex-shrink:0;
+    transform:rotate(-8deg);
+  }
+  .seal::before{
+    content:'';
+    position:absolute; inset:8px;
+    border:1px dashed var(--seal);
+    border-radius:50%;
+    opacity:0.6;
+  }
+  .seal-text{
+    font-family:'Tiro Devanagari Hindi', serif;
+    color:var(--seal);
+    text-align:center;
+    font-size:0.92rem;
+    line-height:1.3;
+  }
+
+  header.hero{
+    padding:64px 0 48px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .hero-top{
+    display:flex; align-items:flex-start; justify-content:space-between; gap:24px;
+    flex-wrap:wrap-reverse;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:18px; display:block;
+  }
+  h1.title{
+    font-size:clamp(2.1rem, 6vw, 3.4rem);
+    color:var(--cream-text);
+    max-width:640px;
+    margin-bottom:18px;
+  }
+  .motto{
+    font-family:'Tiro Devanagari Hindi', serif;
+    font-style:italic;
+    color:var(--brass);
+    font-size:1.15rem;
+    max-width:520px;
+  }
+  .hero-desc{
+    margin-top:28px; max-width:560px;
+    color:rgba(236,228,205,0.82);
+    font-size:1.02rem;
+  }
+
+  nav.ledger-index{
+    margin-top:44px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  nav.ledger-index ul{ list-style:none; }
+  nav.ledger-index li{ border-bottom:1px solid var(--line); }
+  nav.ledger-index li:last-child{ border-bottom:none; }
+  nav.ledger-index a{
+    display:flex; align-items:baseline; gap:16px;
+    padding:13px 2px;
+    text-decoration:none;
+    transition:padding-right 0.25s ease, color 0.25s ease;
+  }
+  nav.ledger-index a:hover{ padding-right:10px; color:var(--brass); }
+  nav.ledger-index .num{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--seal);
+    font-size:0.85rem;
+    min-width:38px;
+  }
+  nav.ledger-index .lbl{ flex:1; font-size:1rem; }
+  nav.ledger-index .arrow{ opacity:0.5; font-family:'JetBrains Mono', monospace; }
+
+  section{ padding:56px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--seal); margin-bottom:12px; display:block;
+  }
+  h2.section-title{
+    font-size:clamp(1.5rem, 4vw, 2rem);
+    margin-bottom:32px;
+    color:var(--cream-text);
+  }
+
+  .pillar-row{
+    display:grid; grid-template-columns:64px 1fr; gap:20px;
+    padding:24px 0; border-top:1px solid var(--line);
+  }
+  .pillar-row:last-child{ border-bottom:1px solid var(--line); }
+  .pillar-num{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--brass); font-size:1.6rem; opacity:0.8;
+  }
+  .pillar-row h3{ font-size:1.25rem; color:var(--cream-text); margin-bottom:8px; }
+  .pillar-row p{ color:rgba(236,228,205,0.78); font-size:0.98rem; max-width:560px; }
+
+  .flow{
+    display:flex; flex-wrap:wrap; gap:0; align-items:stretch;
+    background:var(--paper); border-radius:4px; overflow:hidden;
+    color:var(--ink);
+  }
+  .flow-step{
+    flex:1 1 200px;
+    padding:22px 18px;
+    border-right:1px dashed rgba(21,27,46,0.25);
+    position:relative;
+  }
+  .flow-step:last-child{ border-right:none; }
+  .flow-step .fk{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem; color:var(--seal-dim); letter-spacing:0.08em;
+    text-transform:uppercase; margin-bottom:8px; display:block;
+  }
+  .flow-step h4{
+    font-family:'Tiro Devanagari Hindi', serif;
+    font-size:1.08rem; font-weight:400; margin-bottom:6px;
+  }
+  .flow-step p{ font-size:0.86rem; color:rgba(21,27,46,0.72); }
+
+  .tree{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.86rem;
+    overflow-x:auto;
+  }
+  .tree .dir{ color:var(--brass); }
+  .tree .file{ color:rgba(236,228,205,0.85); }
+  .tree .file a{ text-decoration:none; border-bottom:1px dotted rgba(236,228,205,0.4); }
+  .tree .file a:hover{ color:var(--seal); border-color:var(--seal); }
+  .tree .comment{ color:rgba(236,228,205,0.4); }
+  .tree div{ padding:2px 0; white-space:pre; }
+
+  .join-grid{ display:grid; grid-template-columns:1fr; gap:20px; }
+  @media(min-width:640px){ .join-grid{ grid-template-columns:1fr 1fr; } }
+  .join-card{
+    background:var(--paper); color:var(--ink);
+    border-radius:4px; padding:28px 24px;
+    position:relative;
+  }
+  .join-card .stamp-mini{
+    position:absolute; top:20px; left:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--seal); border:1px solid var(--seal);
+    padding:3px 8px; border-radius:2px;
+    transform:rotate(-3deg);
+  }
+  .join-card h3{ font-size:1.3rem; margin:44px 0 10px; }
+  .join-card p{ font-size:0.92rem; color:rgba(21,27,46,0.75); margin-bottom:18px; }
+  .join-card .price{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1.6rem; color:var(--seal-dim); margin-bottom:14px;
+  }
+  .btn{
+    display:inline-block;
+    border:1.5px solid var(--seal);
+    color:var(--seal-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.82rem; letter-spacing:0.05em;
+    padding:9px 18px; border-radius:2px;
+    text-decoration:none;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+  .btn:hover{ background:var(--seal); color:var(--paper); }
+
+  footer{ padding:44px 0 60px; text-align:center; }
+  footer .motto-repeat{
+    font-family:'Tiro Devanagari Hindi', serif;
+    font-style:italic;
+    color:var(--brass);
+    margin-bottom:14px;
+    font-size:1.05rem;
+  }
+  footer .org{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:rgba(236,228,205,0.5);
+    letter-spacing:0.05em;
+  }
+
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <span class="eyebrow">GBSBFORYOU · सार्वजनिक पंजी · भोपाल</span>
+        <h1 class="title">स्वतंत्र पत्रकार सहकारिता</h1>
+        <p class="motto">"राज मिले या नाराज़गी — हम केवल सत्य के पक्ष में रहेंगे।"</p>
+        <p class="hero-desc">पत्रकारिता लोकतंत्र का चौथा खंभा है, पर उसकी आर्थिक नींव कमज़ोर है। यह सहकारिता उस नींव को मज़बूत करने का एक सार्वजनिक, पारदर्शी और जनस्वामित्व वाला प्रयास है।</p>
+      </div>
+      <div class="seal">
+        <div class="seal-text">एक व्यक्ति<br>एक वोट</div>
+      </div>
+    </div>
+
+    <nav class="ledger-index reveal">
+      <ul>
+        <li><a href="#pillars"><span class="num">001</span><span class="lbl">तीन स्तंभ</span><span class="arrow">→</span></a></li>
+        <li><a href="#governance"><span class="num">002</span><span class="lbl">शासन-चक्र</span><span class="arrow">→</span></a></li>
+        <li><a href="#repo"><span class="num">003</span><span class="lbl">अभिलेख संरचना</span><span class="arrow">→</span></a></li>
+        <li><a href="#join"><span class="num">004</span><span class="lbl">शामिल हों</span><span class="arrow">→</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="pillars">
+  <div class="wrap reveal">
+    <span class="section-eyebrow">प्रविष्टि 001</span>
+    <h2 class="section-title">तीन स्तंभ जिन पर यह ढाँचा खड़ा है</h2>
+
+    <div class="pillar-row">
+      <div class="pillar-num">01</div>
+      <div>
+        <h3>आर्थिक आत्मनिर्भरता</h3>
+        <p>पत्रकार किसी एक सरकार, दल, कॉर्पोरेट या विज्ञापनदाता पर निर्भर नहीं रहते। आय सहकारी कोष, साझा अवसंरचना और सामूहिक संसाधनों से आती है।</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <div class="pillar-num">02</div>
+      <div>
+        <h3>जन-स्वामित्व</h3>
+        <p>भारत का कोई भी नागरिक ₹10 के सहकारी शेयर से संस्थान का स्वामित्व-हिस्सेदार बन सकता है। शेयर बड़ा हो या छोटा — मत-शक्ति सदा बराबर रहती है।</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <div class="pillar-num">03</div>
+      <div>
+        <h3>पेशेवर स्वायत्तता</h3>
+        <p>सदस्यता प्रमाणपत्र से नहीं, बल्कि AI-विश्लेषित कार्य-प्रोफाइल से तय होती है। कोई सदस्य व्यक्तिगत रूप से किसी मीडिया हाउस का मालिक नहीं बनता — स्वामित्व सदा सामूहिक रहता है।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="governance">
+  <div class="wrap reveal">
+    <span class="section-eyebrow">प्रविष्टि 002</span>
+    <h2 class="section-title">शासन-चक्र</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <span class="fk">चरण अ</span>
+        <h4>मनोनीत टीम</h4>
+        <p>केवल पंजीकरण अवधि तक — AI-प्रोफाइल मूल्यांकन की देखरेख करती है।</p>
+      </div>
+      <div class="flow-step">
+        <span class="fk">चरण ब</span>
+        <h4>पंजीकरण बंद</h4>
+        <p>पूर्व-घोषित तिथि/सदस्य-संख्या पर मनोनीत टीम की भूमिका समाप्त।</p>
+      </div>
+      <div class="flow-step">
+        <span class="fk">चरण स</span>
+        <h4>अनिवार्य चुनाव</h4>
+        <p>केवल पंजीकृत सदस्य वोट देते और चुनाव लड़ते हैं — एक सदस्य, एक मत।</p>
+      </div>
+      <div class="flow-step">
+        <span class="fk">चरण द</span>
+        <h4>प्रबंधन मंडल + आम सभा</h4>
+        <p>निर्वाचित मंडल संचालन करता है; आम सभा (सभी सदस्य) निगरानी रखती है।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="repo">
+  <div class="wrap reveal">
+    <span class="section-eyebrow">प्रविष्टि 003</span>
+    <h2 class="section-title">अभिलेख संरचना</h2>
+    <div class="tree">
+<div><span class="dir">GBSBFORYOU/</span></div>
+<div>  <span class="file"><a href="./JOURNALISM_POLICY.md">JOURNALISM_POLICY.md</a></span>   <span class="comment">मूल नीति और सिद्धांत</span></div>
+<div>  <span class="file"><a href="./CODE_OF_ETHICS.md">CODE_OF_ETHICS.md</a></span>       <span class="comment">आचार संहिता</span></div>
+<div>  <span class="file"><a href="./REGISTRATION_FORM.md">REGISTRATION_FORM.md</a></span>   <span class="comment">पेशेवर व शेयरधारक पंजीकरण</span></div>
+<div>  <span class="file"><a href="./REPORTING_GUIDELINES.md">REPORTING_GUIDELINES.md</a></span> <span class="comment">रिपोर्ट जीवन-चक्र</span></div>
+<div>  <span class="file"><a href="./REVIEW_PROCESS.md">REVIEW_PROCESS.md</a></span>     <span class="comment">समीक्षा, अपील, चुनाव</span></div>
+<div>  <span class="file"><a href="./COOPERATIVE_RULES.md">COOPERATIVE_RULES.md</a></span>   <span class="comment">स्वामित्व और शासन</span></div>
+<div>  <span class="file"><a href="./LICENSE">LICENSE</a></span>              <span class="comment">लाइसेंस स्पष्टीकरण</span></div>
+<div>  <span class="dir">MEMBERS/</span>                <span class="comment">सदस्य प्रोफाइल अभिलेख</span></div>
+<div>  <span class="dir">REPORTS/</span>                <span class="comment">प्रकाशित रिपोर्टें</span></div>
+<div>  <span class="dir">VERIFICATION/</span>           <span class="comment">तथ्य-सत्यापन अभिलेख</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap reveal">
+    <span class="section-eyebrow">प्रविष्टि 004</span>
+    <h2 class="section-title">शामिल हों</h2>
+    <div class="join-grid">
+      <div class="join-card">
+        <span class="stamp-mini">पेशेवर</span>
+        <h3>पत्रकार / मीडियाकर्मी</h3>
+        <p>प्रमाणपत्र नहीं — प्रकाशित कार्य की प्रोफाइल से पात्रता तय होती है। AI-मूल्यांकन के बाद सदस्यता।</p>
+        <a class="btn" href="./REGISTRATION_FORM.md">पंजीकरण प्रपत्र देखें →</a>
+      </div>
+      <div class="join-card">
+        <span class="stamp-mini">नागरिक</span>
+        <h3>जन-शेयरधारक</h3>
+        <p>भारत का कोई भी नागरिक स्वामित्व-हिस्सेदार बन सकता है।</p>
+        <div class="price">₹10 / शेयर</div>
+        <a class="btn" href="./REGISTRATION_FORM.md">शेयरधारक बनें →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="motto-repeat">प्रजा ही जनार्दन है। सत्य सर्वोपरि है।</p>
+    <p class="org">GBSBFORYOU PUBLICATIONS — भोपाल, मध्य प्रदेश</p>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el=>io.observe(el));
+  } else {
+    els.forEach(el=>el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
